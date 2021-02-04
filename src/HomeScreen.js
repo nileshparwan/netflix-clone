@@ -51,7 +51,7 @@ const HomeScreen = () => {
         if (loadAnimation) {
             setTimeout(() => {
                 setLoadAnimation(false);
-            }, 5000);
+            }, 6000);
         }
 
     }, [loadAnimation]);
