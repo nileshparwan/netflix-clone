@@ -5,6 +5,7 @@ import Banner from './Banner';
 import Rows from './Row';
 import requests from './Requests';
 import './HomeScreen.css';
+import Footer from './Footer';
 
 const HomeScreen = () => {
     const [loadAnimation, setLoadAnimation] = useState(true);
@@ -39,13 +40,13 @@ const HomeScreen = () => {
         const showAnimation = getCookie(onLoadAnimationCookie) || undefined;
 
         //!exist
-        if (!showAnimation) { 
+        if (!showAnimation) {
             setLoadAnimation(true);
             setCookie(onLoadAnimationCookie);
         } else {
             setLoadAnimation(false);
         }
-        
+
         //exist
         if (loadAnimation) {
             setTimeout(() => {
@@ -59,17 +60,21 @@ const HomeScreen = () => {
         loadAnimation ? (
             <OnLoadAnimation />
         ) : (
-                <div className="homeScreen">
-                    <Nav />
-                    <Banner />
-                    <Rows title="Netflix Original" fetchUrl={requests.fetNetflixOriginals} isLargeRow />
-                    <Rows title="Top Rated" fetchUrl={requests.fetchTopRated} />
-                    <Rows title="Action Movies" fetchUrl={requests.fetchActionMovies} />
-                    <Rows title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
-                    <Rows title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
-                    <Rows title="Romance Movies" fetchUrl={requests.fetchRomanceMovies} />
-                    <Rows title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
-                </div>
+                <>
+                    <div className="homeScreen">
+                        <Nav />
+                        <Banner />
+                        <Rows title="Netflix Original" fetchUrl={requests.fetNetflixOriginals} isLargeRow />
+                        <Rows title="Top Rated" fetchUrl={requests.fetchTopRated} />
+                        <Rows title="Action Movies" fetchUrl={requests.fetchActionMovies} />
+                        <Rows title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
+                        <Rows title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
+                        <Rows title="Romance Movies" fetchUrl={requests.fetchRomanceMovies} />
+                        <Rows title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
+                    </div>
+
+                    <Footer />
+                </>
             )
 
     );

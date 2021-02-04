@@ -1,0 +1,41 @@
+{
+  "footerOne": [
+    {
+      "item": [
+        { "title": "Audio and Subtitles", "url": "" },
+        { "title": "Media Center", "url": "" },
+        { "title": "Privacy", "url": "" },
+        { "title": "Contact Us", "url": "" }
+      ]
+    },
+    {
+      "item": [
+        { "title": "Audio Description", "url": "" },
+        { "title": "Investor Relations", "url": "" },
+        { "title": "Legal Notices", "url": "" }
+      ]
+    },
+    {
+      "item": [
+        { "title": "Amazon Business Card", "url": "" },
+        { "title": "Shop with Points", "url": "" },
+        { "title": "Reload Your Balance", "url": "" },
+        { "title": "Amazon Currency Converter", "url": "" }
+      ]
+    },
+    {
+      "item": [
+        { "title": "Help Center", "url": "" },
+        { "title": "Jobs", "url": "" },
+        { "title": "Cookie Preferences", "url": "" }
+      ]
+    },
+    {
+      "item": [
+        { "title": "Gift Cards", "url": "" },
+        { "title": "Terms of Use", "url": "" },
+        { "title": "Corporate information", "url": "" }
+      ]
+    }
+  ]
+}
