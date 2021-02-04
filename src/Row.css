@@ -22,9 +22,11 @@
   transition: transform 450ms;
 }
 
-.row__poster:hover {
-  transform: scale(1.08);
-  opacity: 1;
+@media (min-width: 992px) {
+  .row__poster:hover {
+    transform: scale(1.08);
+    opacity: 1;
+  }
 }
 
 .row__posterLarge {
