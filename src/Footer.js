@@ -30,7 +30,6 @@ const FooterSectionOne = ({ item }) => {
 
 
 function Footer() {
-
     return (
         <div className="footer">
             <FooterSectionOne item={footerOne} />

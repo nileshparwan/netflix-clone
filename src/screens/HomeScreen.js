@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import OnLoadAnimation from './OnLoadAnimation';
-import Nav from './Nav';
-import Banner from './Banner';
-import Rows from './Row';
-import requests from './Requests';
+import OnLoadAnimation from '../OnLoadAnimation';
+import Nav from '../Nav';
+import Banner from '../Banner';
+import Rows from '../Row';
+import requests from '../Requests';
 import './HomeScreen.css';
-import Footer from './Footer';
+import Footer from '../Footer';
 
 const HomeScreen = () => {
     const [loadAnimation, setLoadAnimation] = useState(true);

@@ -12,29 +12,22 @@
   .footer__middle {
     display: flex;
     justify-content: center;
-    width: 100%;
     background-color: transparent;
     padding: 40px 5px;
   }
   
   .footer__middle__row {
     display: flex;
-    align-items: start;
-    flex-basis: 1000px;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 0 1 auto;
+    flex-wrap: wrap;
   }
   
   .footer__middle__col {
-    padding: 0 10px;
+    padding: 0 25px 20px;
     flex: 1;
   }
-  
-  /* .footer__middle__col > p {
-    color: #fff;
-    font-weight: 700;
-    font-size: 16px;
-    margin: 6px 0 14px 0;
-    white-space: nowrap;
-  } */
   
   .footer__middle__col > ul {
     list-style: none;
@@ -45,6 +38,7 @@
     margin: 0 0 10px;
     list-style-type: none;
     white-space: nowrap;
+    text-align: center;
   }
   
   .footer__middle__col > ul > li > a {
