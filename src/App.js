@@ -9,25 +9,38 @@ import {
 } from "react-router-dom";
 
 import './App.css';
-import { auth } from './firebase';
-import { login, logout, selectUser } from './features/userSlice';
+import db, { auth } from './firebase';
+import { login, logout, subcription, selectUser } from './features/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import ProfileScreen from './screens/ProfileScreen';
 
 function App() {
 
   const user = useSelector(selectUser);
-  console.log(user);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(userAuth => {
+
       if (userAuth) {
         // login
         dispatch(login({
           uid: userAuth.uid,
           email: userAuth.email
         }));
+        // user role
+        db.collection("customers")
+          .doc(userAuth.uid)
+          .collection("subscriptions")
+          .get()
+          .then(
+            (querySnapshot) => {
+              querySnapshot.forEach(async (subcriptionValue) => {
+                dispatch(subcription(subcriptionValue.data().role));
+              });
+            }
+          );
+
       } else {
         // logout
         dispatch(logout());
@@ -44,12 +57,13 @@ function App() {
             <Login />
           ) : (
               <Switch>
-                <Route path="/login">
-
-                </Route>
 
                 <Route path="/profile">
                   <ProfileScreen />
+                </Route>
+
+                <Route path="/login">
+                  <Login />
                 </Route>
 
                 <Route path="/" exact>
