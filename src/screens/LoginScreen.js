@@ -7,6 +7,14 @@ const LoginScreen = () => {
     const [signIn, setSignIn] = useState(false);
     const signInHandler = () => setSignIn(true);
 
+    const signInHandlerWithLocalStorage = (event) => {
+        event.preventDefault();
+        const parent = event?.currentTarget.parentElement; 
+        const input = parent?.querySelector("input"); 
+        window.localStorage.setItem("user_info", input?.value)
+        input.value && setSignIn(true);
+    };
+
     return (
         <div className="loginScreen">
             <div className="loginScreen__background">
@@ -33,7 +41,7 @@ const LoginScreen = () => {
                                         />
                                         <button
                                             className="loginScreen__getStarted"
-                                            onClick={signInHandler}
+                                            onClick={signInHandlerWithLocalStorage}
                                         >
                                             GET STARTED
                                         </button>

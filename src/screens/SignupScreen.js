@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { auth } from '../firebase';
 import './SignupScreen.css';
 
@@ -6,6 +6,12 @@ const SignupScreen = () => {
 
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
+
+    useEffect(() => {
+        if (window.localStorage.getItem("user_info")) {
+            emailRef.current.setAttribute("value", window.localStorage.getItem("user_info"));
+        }
+    }, []);
 
     const register = (e) => {
         e.preventDefault();
