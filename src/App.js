@@ -10,13 +10,14 @@ import {
 
 import './App.css';
 import db, { auth } from './firebase';
-import { login, logout, subcription, selectUser } from './features/userSlice';
+import { login, logout, subcription, selectUser, selecSubcription } from './features/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import ProfileScreen from './screens/ProfileScreen';
 
 function App() {
 
   const user = useSelector(selectUser);
+  const userSubcription = useSelector(selecSubcription);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -56,21 +57,25 @@ function App() {
           !user ? (
             <Login />
           ) : (
-              <Switch>
-
-                <Route path="/profile">
+              !userSubcription
+                ? (
                   <ProfileScreen />
-                </Route>
+                )
+                : (
+                  <Switch>
+                    <Route path="/profile">
+                      <ProfileScreen />
+                    </Route>
 
-                <Route path="/login">
-                  <Login />
-                </Route>
+                    <Route path="/login">
+                      <Login />
+                    </Route>
 
-                <Route path="/" exact>
-                  <HomeScreen />
-                </Route>
-
-              </Switch>
+                    <Route path="/" exact>
+                      <HomeScreen />
+                    </Route>
+                  </Switch>
+                )
             )
         }
       </Router>
